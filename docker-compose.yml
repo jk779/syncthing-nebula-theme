@@ -1,0 +1,23 @@
+services:
+  syncthing:
+    image: syncthing/syncthing:2.1.1
+    container_name: syncthing
+    hostname: syncthing
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      # Empty means: use the address saved in Syncthing's configuration.
+      # Keep the GUI behind HTTPS/authentication when it is externally reachable.
+      STGUIADDRESS: ""
+    volumes:
+      # Persisted Syncthing configuration, database and default sync directory.
+      - ./syncthing-data:/var/syncthing
+      # The custom theme is intentionally read-only and survives image updates.
+      - ./themes/nebula:/var/syncthing/config/gui/nebula:ro
+    network_mode: host
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fkLsS -m 2 127.0.0.1:8384/rest/noauth/health | grep -q OK"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
