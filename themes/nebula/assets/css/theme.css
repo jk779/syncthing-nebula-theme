@@ -10,8 +10,8 @@
 :root {
   --nebula-void: #080b18;
   --nebula-deep: #10152b;
-  --nebula-surface: rgba(23, 31, 61, 0.86);
-  --nebula-surface-raised: rgba(35, 45, 82, 0.92);
+  --nebula-surface: #171f3d;
+  --nebula-surface-raised: #232d52;
   --nebula-line: rgba(159, 181, 255, 0.15);
   --nebula-line-bright: rgba(124, 232, 255, 0.42);
   --nebula-text: #edf2ff;
@@ -45,18 +45,18 @@ body::before {
   inset: -28vmax;
   content: "";
   pointer-events: none;
-  opacity: 0.58;
+  opacity: 0.72;
   background:
-    radial-gradient(circle at 26% 30%, rgba(112, 92, 255, 0.18), transparent 24%),
-    radial-gradient(circle at 70% 45%, rgba(57, 220, 255, 0.13), transparent 27%),
-    radial-gradient(circle at 49% 75%, rgba(196, 96, 255, 0.10), transparent 21%);
-  filter: blur(30px);
-  animation: nebula-drift 26s ease-in-out infinite alternate;
+    radial-gradient(circle at 26% 30%, rgba(112, 92, 255, 0.23), transparent 27%),
+    radial-gradient(circle at 70% 45%, rgba(57, 220, 255, 0.17), transparent 30%),
+    radial-gradient(circle at 49% 75%, rgba(196, 96, 255, 0.13), transparent 24%);
+  will-change: transform;
+  animation: nebula-drift 20s ease-in-out infinite alternate;
 }
 
 @keyframes nebula-drift {
-  from { transform: translate3d(-2%, -1%, 0) rotate(-3deg) scale(1); }
-  to { transform: translate3d(3%, 2%, 0) rotate(4deg) scale(1.08); }
+  from { transform: translate3d(-4%, -2%, 0) rotate(-3deg) scale(1); }
+  to { transform: translate3d(5%, 3%, 0) rotate(4deg) scale(1.08); }
 }
 
 @keyframes nebula-pulse {
@@ -67,11 +67,6 @@ body::before {
 @keyframes nebula-sheen {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
-}
-
-@keyframes nebula-mark-float {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-2px) rotate(2deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -104,14 +99,17 @@ a:hover, a:focus {
   border: 1px solid var(--nebula-line) !important;
   border-width: 0 0 1px !important;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(18px) saturate(135%);
+  background-color: rgba(11, 15, 34, 0.95) !important;
 }
 
 .navbar-brand {
   position: relative;
   display: flex;
   align-items: center;
-  width: 54px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 148px;
   height: 62px;
   margin: 0 10px 0 0;
   padding: 0;
@@ -123,12 +121,27 @@ a:hover, a:focus {
 
 .navbar-brand::before {
   display: block;
-  width: 42px;
-  height: 42px;
-  content: "";
-  background: url("../img/nebula-mark.png") center / contain no-repeat;
-  filter: drop-shadow(0 0 10px rgba(100, 232, 255, 0.34));
-  animation: nebula-mark-float 5.5s ease-in-out infinite;
+  content: "NEBULA";
+  color: transparent;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 0.95;
+  text-shadow: 0 0 16px rgba(100, 232, 255, 0.14);
+  background: linear-gradient(105deg, #e9fbff 0%, var(--nebula-cyan) 40%, var(--nebula-violet) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.navbar-brand::after {
+  display: block;
+  margin-top: 5px;
+  content: "SYNC  CONTROL";
+  color: #8f9abc;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+  line-height: 1;
 }
 
 .navbar-text {
@@ -192,7 +205,6 @@ a:hover, a:focus {
   border: 1px solid var(--nebula-line) !important;
   border-radius: 14px !important;
   box-shadow: var(--nebula-shadow);
-  backdrop-filter: blur(16px) saturate(125%);
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -226,9 +238,8 @@ a:hover, a:focus {
 .panel-heading {
   color: var(--nebula-text) !important;
   background: linear-gradient(100deg, rgba(102, 126, 255, 0.24), rgba(91, 226, 255, 0.10), rgba(173, 123, 255, 0.18)) !important;
-  background-size: 180% 180% !important;
+  background-size: 100% 100% !important;
   border-color: var(--nebula-line) !important;
-  animation: nebula-sheen 11s ease-in-out infinite;
 }
 
 .panel-default > .panel-heading:hover,
@@ -347,11 +358,10 @@ label, .help-block, .text-muted { color: var(--nebula-muted) !important; }
 .popover,
 .modal-content {
   color: var(--nebula-text) !important;
-  background: rgba(18, 25, 53, 0.97) !important;
+  background: #121935 !important;
   border: 1px solid rgba(159, 181, 255, 0.24) !important;
   border-radius: 12px !important;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.48);
-  backdrop-filter: blur(20px);
 }
 
 .dropdown-menu > li > a {
@@ -394,6 +404,52 @@ label, .help-block, .text-muted { color: var(--nebula-muted) !important; }
   color: var(--nebula-cyan) !important;
   background: rgba(100, 232, 255, 0.08) !important;
   border-color: var(--nebula-line) var(--nebula-line) transparent !important;
+}
+
+/* Settings uses Bootstrap tabs; turn them into a compact segmented control. */
+.modal .nav-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  padding: 4px;
+  overflow-x: auto;
+  background: rgba(4, 8, 22, 0.46);
+  border: 1px solid var(--nebula-line) !important;
+  border-radius: 11px;
+}
+
+.modal .nav-tabs > li {
+  float: none;
+  flex: 1 0 auto;
+}
+
+.modal .nav-tabs > li > a,
+.modal .nav-tabs > li.active > a,
+.modal .nav-tabs > li.active > a:hover,
+.modal .nav-tabs > li.active > a:focus {
+  margin: 0;
+  padding: 9px 12px;
+  text-align: center;
+  border: 1px solid transparent !important;
+  border-radius: 7px !important;
+}
+
+.modal .nav-tabs > li > a:hover {
+  background: rgba(116, 140, 255, 0.13) !important;
+}
+
+.modal .nav-tabs > li.active > a,
+.modal .nav-tabs > li.active > a:hover,
+.modal .nav-tabs > li.active > a:focus {
+  color: #eafcff !important;
+  background: linear-gradient(110deg, rgba(100, 232, 255, 0.19), rgba(132, 137, 255, 0.23)) !important;
+  border-color: rgba(129, 204, 255, 0.28) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 5px 13px rgba(14, 30, 85, 0.24);
+}
+
+.modal .tab-content {
+  min-height: 140px;
+  padding: 4px 2px;
 }
 
 /* Tables, progress indicators and status details */
