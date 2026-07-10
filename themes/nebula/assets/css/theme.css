@@ -227,7 +227,6 @@ a:hover, a:focus {
 .panel:hover {
   border-color: rgba(100, 232, 255, 0.60) !important;
   box-shadow: 0 24px 62px rgba(0, 0, 0, 0.44), 0 0 0 1px rgba(100, 232, 255, 0.13), 0 0 30px rgba(87, 147, 255, 0.15);
-  transform: translateY(-2px);
 }
 
 .panel:hover::before {
