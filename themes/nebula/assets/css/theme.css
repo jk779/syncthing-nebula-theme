@@ -84,6 +84,10 @@ a:hover, a:focus {
 /* Top navigation */
 .navbar,
 .navbar.navbar-default {
+  /* backdrop-filter creates a stacking context. Keep its open menus above
+     device/folder cards, but below Bootstrap modals (z-index 1050). */
+  position: relative;
+  z-index: 1020;
   min-height: 62px;
   margin-bottom: 28px;
   background: rgba(11, 15, 34, 0.74) !important;
