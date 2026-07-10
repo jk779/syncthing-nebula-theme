@@ -10,10 +10,10 @@
 :root {
   --nebula-void: #080b18;
   --nebula-deep: #10152b;
-  --nebula-surface: #171f3d;
-  --nebula-surface-raised: #232d52;
-  --nebula-line: rgba(159, 181, 255, 0.15);
-  --nebula-line-bright: rgba(124, 232, 255, 0.42);
+  --nebula-surface: #17224a;
+  --nebula-surface-raised: #29396f;
+  --nebula-line: rgba(145, 178, 255, 0.30);
+  --nebula-line-bright: rgba(124, 232, 255, 0.66);
   --nebula-text: #edf2ff;
   --nebula-muted: #aeb9d9;
   --nebula-cyan: #64e8ff;
@@ -32,9 +32,9 @@ html {
 body {
   color: var(--nebula-text) !important;
   background:
-    radial-gradient(ellipse 70% 55% at 12% -8%, rgba(96, 92, 255, 0.24), transparent 67%),
-    radial-gradient(ellipse 52% 48% at 94% 7%, rgba(37, 206, 255, 0.16), transparent 70%),
-    linear-gradient(135deg, #080b18 0%, #11142c 46%, #0b1430 100%) fixed !important;
+    radial-gradient(ellipse 70% 55% at 12% -8%, rgba(112, 92, 255, 0.38), transparent 67%),
+    radial-gradient(ellipse 52% 48% at 94% 7%, rgba(37, 206, 255, 0.27), transparent 70%),
+    linear-gradient(135deg, #070b1c 0%, #151a3a 46%, #0c1c42 100%) fixed !important;
   min-height: 100vh;
 }
 
@@ -45,11 +45,11 @@ body::before {
   inset: -28vmax;
   content: "";
   pointer-events: none;
-  opacity: 0.72;
+  opacity: 0.92;
   background:
-    radial-gradient(circle at 26% 30%, rgba(112, 92, 255, 0.23), transparent 27%),
-    radial-gradient(circle at 70% 45%, rgba(57, 220, 255, 0.17), transparent 30%),
-    radial-gradient(circle at 49% 75%, rgba(196, 96, 255, 0.13), transparent 24%);
+    radial-gradient(circle at 26% 30%, rgba(112, 92, 255, 0.34), transparent 29%),
+    radial-gradient(circle at 70% 45%, rgba(57, 220, 255, 0.25), transparent 32%),
+    radial-gradient(circle at 49% 75%, rgba(196, 96, 255, 0.22), transparent 26%);
   will-change: transform;
   animation: nebula-drift 20s ease-in-out infinite alternate;
 }
@@ -95,11 +95,11 @@ a:hover, a:focus {
   z-index: 1020;
   min-height: 62px;
   margin-bottom: 28px;
-  background: rgba(11, 15, 34, 0.74) !important;
+  background: rgba(10, 14, 37, 0.92) !important;
   border: 1px solid var(--nebula-line) !important;
   border-width: 0 0 1px !important;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
-  background-color: rgba(11, 15, 34, 0.95) !important;
+  box-shadow: 0 9px 34px rgba(0, 0, 0, 0.34), 0 1px 0 rgba(100, 232, 255, 0.19);
+  background-color: rgba(10, 14, 37, 0.98) !important;
 }
 
 .navbar-brand {
@@ -123,11 +123,11 @@ a:hover, a:focus {
   display: block;
   content: "NEBULA";
   color: transparent;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 800;
   letter-spacing: 0.16em;
   line-height: 0.95;
-  text-shadow: 0 0 16px rgba(100, 232, 255, 0.14);
+  text-shadow: 0 0 17px rgba(100, 232, 255, 0.30), 0 0 28px rgba(173, 123, 255, 0.17);
   background: linear-gradient(105deg, #e9fbff 0%, var(--nebula-cyan) 40%, var(--nebula-violet) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -155,8 +155,8 @@ a:hover, a:focus {
   font-weight: 700;
   letter-spacing: 0.035em;
   line-height: 1;
-  background: rgba(116, 140, 255, 0.12);
-  border: 1px solid rgba(159, 181, 255, 0.16);
+  background: linear-gradient(110deg, rgba(100, 232, 255, 0.16), rgba(132, 137, 255, 0.24));
+  border: 1px solid rgba(124, 232, 255, 0.34);
   border-radius: 999px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
@@ -201,10 +201,10 @@ a:hover, a:focus {
   overflow: hidden;
   margin-bottom: 20px;
   color: var(--nebula-text);
-  background: var(--nebula-surface) !important;
+  background: linear-gradient(145deg, rgba(38, 53, 105, 0.96), rgba(20, 29, 66, 0.98)) !important;
   border: 1px solid var(--nebula-line) !important;
   border-radius: 14px !important;
-  box-shadow: var(--nebula-shadow);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.055);
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -215,7 +215,7 @@ a:hover, a:focus {
   content: "";
   pointer-events: none;
   opacity: 0;
-  background: radial-gradient(circle at 15% 0%, rgba(100, 232, 255, 0.11), transparent 34%);
+  background: radial-gradient(circle at 15% 0%, rgba(100, 232, 255, 0.20), transparent 36%);
   transition: opacity 220ms ease;
 }
 
@@ -225,8 +225,8 @@ a:hover, a:focus {
 }
 
 .panel:hover {
-  border-color: rgba(142, 172, 255, 0.28) !important;
-  box-shadow: 0 24px 62px rgba(0, 0, 0, 0.38);
+  border-color: rgba(100, 232, 255, 0.60) !important;
+  box-shadow: 0 24px 62px rgba(0, 0, 0, 0.44), 0 0 0 1px rgba(100, 232, 255, 0.13), 0 0 30px rgba(87, 147, 255, 0.15);
   transform: translateY(-2px);
 }
 
@@ -234,10 +234,24 @@ a:hover, a:focus {
   opacity: 1;
 }
 
+.panel::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 12%;
+  left: 12%;
+  height: 2px;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--nebula-cyan), var(--nebula-violet), transparent);
+  opacity: 0.82;
+  box-shadow: 0 0 14px rgba(100, 232, 255, 0.42);
+}
+
 .panel-default > .panel-heading,
 .panel-heading {
   color: var(--nebula-text) !important;
-  background: linear-gradient(100deg, rgba(102, 126, 255, 0.24), rgba(91, 226, 255, 0.10), rgba(173, 123, 255, 0.18)) !important;
+  background: linear-gradient(105deg, #293d82 0%, #1d5386 52%, #51348a 100%) !important;
   background-size: 100% 100% !important;
   border-color: var(--nebula-line) !important;
 }
@@ -413,7 +427,7 @@ label, .help-block, .text-muted { color: var(--nebula-muted) !important; }
   margin-bottom: 20px;
   padding: 4px;
   overflow-x: auto;
-  background: rgba(4, 8, 22, 0.46);
+  background: rgba(3, 7, 22, 0.70);
   border: 1px solid var(--nebula-line) !important;
   border-radius: 11px;
 }
@@ -442,9 +456,9 @@ label, .help-block, .text-muted { color: var(--nebula-muted) !important; }
 .modal .nav-tabs > li.active > a:hover,
 .modal .nav-tabs > li.active > a:focus {
   color: #eafcff !important;
-  background: linear-gradient(110deg, rgba(100, 232, 255, 0.19), rgba(132, 137, 255, 0.23)) !important;
-  border-color: rgba(129, 204, 255, 0.28) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 5px 13px rgba(14, 30, 85, 0.24);
+  background: linear-gradient(110deg, #187ba5, #5060c7 58%, #8247b4) !important;
+  border-color: rgba(149, 233, 255, 0.62) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 5px 16px rgba(53, 105, 255, 0.34);
 }
 
 .modal .tab-content {
