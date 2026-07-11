@@ -493,10 +493,49 @@ a:hover, a:focus {
 
 .panel-success { border-color: rgba(92, 224, 172, 0.38) !important; }
 .panel-success > .panel-heading { background: linear-gradient(100deg, rgba(46, 173, 126, 0.30), rgba(92, 224, 172, 0.09)) !important; }
-.panel-warning { border-color: rgba(255, 211, 108, 0.48) !important; }
-.panel-warning > .panel-heading { color: #fff6da !important; background: linear-gradient(100deg, rgba(190, 130, 19, 0.37), rgba(255, 211, 108, 0.10)) !important; }
-.panel-danger { border-color: rgba(255, 123, 152, 0.46) !important; }
-.panel-danger > .panel-heading { color: #fff0f4 !important; background: linear-gradient(100deg, rgba(204, 58, 92, 0.37), rgba(255, 123, 152, 0.10)) !important; }
+.panel-warning {
+  background: linear-gradient(145deg, rgba(74, 56, 31, 0.97), rgba(39, 33, 39, 0.98)) !important;
+  border-color: rgba(255, 203, 91, 0.68) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 203, 91, 0.12), 0 0 28px rgba(255, 184, 76, 0.11), inset 0 1px 0 rgba(255, 246, 210, 0.11);
+}
+
+.panel-warning::after {
+  background: linear-gradient(90deg, transparent, #ffd36c, #ffb86b, transparent);
+  box-shadow: 0 0 14px rgba(255, 194, 91, 0.48);
+}
+
+.panel-warning > .panel-heading {
+  color: #fff6da !important;
+  background: linear-gradient(105deg, rgba(167, 110, 22, 0.76), rgba(122, 76, 27, 0.64) 52%, rgba(102, 63, 55, 0.56)) !important;
+  border-color: rgba(255, 211, 108, 0.42) !important;
+}
+
+.panel-warning > .panel-footer {
+  background: rgba(93, 67, 31, 0.34) !important;
+  border-color: rgba(255, 211, 108, 0.28) !important;
+}
+
+.panel-danger {
+  background: linear-gradient(145deg, rgba(79, 31, 51, 0.98), rgba(35, 24, 46, 0.98)) !important;
+  border-color: rgba(255, 118, 149, 0.70) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 118, 149, 0.13), 0 0 30px rgba(255, 86, 128, 0.12), inset 0 1px 0 rgba(255, 229, 237, 0.11);
+}
+
+.panel-danger::after {
+  background: linear-gradient(90deg, transparent, #ff7b98, #ff9c83, transparent);
+  box-shadow: 0 0 14px rgba(255, 112, 145, 0.48);
+}
+
+.panel-danger > .panel-heading {
+  color: #fff0f4 !important;
+  background: linear-gradient(105deg, rgba(176, 44, 83, 0.76), rgba(126, 42, 77, 0.66) 52%, rgba(91, 48, 79, 0.58)) !important;
+  border-color: rgba(255, 150, 174, 0.42) !important;
+}
+
+.panel-danger > .panel-footer {
+  background: rgba(88, 30, 55, 0.36) !important;
+  border-color: rgba(255, 150, 174, 0.28) !important;
+}
 
 /* Buttons */
 .btn {
