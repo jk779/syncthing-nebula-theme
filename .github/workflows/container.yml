@@ -53,7 +53,6 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=raw,value=latest
-            type=sha,prefix=sha-
 
       - name: Build and publish the container
         if: github.event_name != 'schedule' || steps.upstream.outputs.digest != steps.published.outputs.digest
