@@ -1,6 +1,6 @@
 services:
   syncthing:
-    image: syncthing/syncthing:2.1.1
+    image: ghcr.io/jk779/syncthing-nebula-theme:latest
     container_name: syncthing
     hostname: syncthing
     environment:
@@ -12,8 +12,6 @@ services:
     volumes:
       # Persisted Syncthing configuration, database and default sync directory.
       - ./syncthing-data:/var/syncthing
-      # The custom theme is intentionally read-only and survives image updates.
-      - ./themes/nebula:/var/syncthing/config/gui/nebula:ro
     network_mode: host
     restart: unless-stopped
     healthcheck:

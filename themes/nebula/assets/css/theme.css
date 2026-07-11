@@ -7,6 +7,86 @@
  * bundled default assets for everything not overridden here.
  */
 
+@font-face {
+  font-family: "Google Sans Flex";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../font/google-sans-flex-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Google Sans Flex";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../font/google-sans-flex-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Google Sans Flex";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../font/google-sans-flex-600.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Google Sans Flex";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../font/google-sans-flex-700.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Stack Sans Notch";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../font/stack-sans-notch-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Stack Sans Notch";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../font/stack-sans-notch-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Stack Sans Notch";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../font/stack-sans-notch-600.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Stack Sans Notch";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../font/stack-sans-notch-700.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../font/dm-mono-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../font/dm-mono-500.ttf") format("truetype");
+}
+
 :root {
   --nebula-void: #080b18;
   --nebula-deep: #10152b;
@@ -30,12 +110,25 @@ html {
 }
 
 body {
+  font-family: "Google Sans Flex", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--nebula-text) !important;
   background:
     radial-gradient(ellipse 70% 55% at 12% -8%, rgba(112, 92, 255, 0.38), transparent 67%),
     radial-gradient(ellipse 52% 48% at 94% 7%, rgba(37, 206, 255, 0.27), transparent 70%),
     linear-gradient(135deg, #070b1c 0%, #151a3a 46%, #0c1c42 100%) fixed !important;
   min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6,
+.panel-title,
+.modal-title {
+  font-family: "Stack Sans Notch", "Google Sans Flex", sans-serif;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.modal-title {
+  line-height: 1.6;
 }
 
 /* A very subtle animated aurora; it is disabled for reduced-motion users. */
@@ -113,6 +206,7 @@ a:hover, a:focus {
   height: 62px;
   margin: 0 10px 0 0;
   padding: 0;
+  transform: translateY(1px);
 }
 
 .navbar .logo {
@@ -155,6 +249,7 @@ a:hover, a:focus {
   border: 1px solid rgba(124, 232, 255, 0.34);
   border-radius: 999px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(1px);
 }
 
 .navbar-text::before {
@@ -244,10 +339,14 @@ a:hover, a:focus {
   border-radius: 13px !important;
 }
 
+.panel > button.btn.panel-heading:focus-visible {
+  outline-offset: -2px;
+}
+
 .panel::after {
   position: absolute;
   z-index: 2;
-  top: 0;
+  top: 1px;
   right: 12%;
   left: 12%;
   height: 2px;
@@ -315,6 +414,28 @@ a:hover, a:focus {
   transform: translateY(0);
 }
 
+.btn[disabled],
+.btn.disabled,
+fieldset[disabled] .btn {
+  color: rgba(218, 227, 255, 0.52) !important;
+  background: rgba(102, 119, 167, 0.20) !important;
+  border-color: rgba(159, 181, 255, 0.16) !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
+  filter: saturate(0.35);
+  opacity: 0.52;
+}
+
+.btn[disabled]:hover,
+.btn[disabled]:focus,
+.btn.disabled:hover,
+.btn.disabled:focus,
+fieldset[disabled] .btn:hover,
+fieldset[disabled] .btn:focus {
+  transform: none;
+  animation: none;
+}
+
 .btn-default {
   color: var(--nebula-text) !important;
   background: rgba(129, 149, 214, 0.13) !important;
@@ -343,6 +464,33 @@ a:hover, a:focus {
   animation: nebula-sheen 2.2s ease-in-out infinite;
 }
 
+/* Keep primary actions visibly inactive until their form has valid changes. */
+.btn.btn-primary[disabled],
+.btn.btn-primary.disabled,
+fieldset[disabled] .btn.btn-primary {
+  color: rgba(222, 231, 255, 0.46) !important;
+  background: rgba(102, 119, 167, 0.18) !important;
+  border-color: rgba(159, 181, 255, 0.15) !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
+  filter: saturate(0.26);
+  opacity: 0.5;
+}
+
+.btn.btn-primary[disabled]:hover,
+.btn.btn-primary[disabled]:focus,
+.btn.btn-primary.disabled:hover,
+.btn.btn-primary.disabled:focus,
+fieldset[disabled] .btn.btn-primary:hover,
+fieldset[disabled] .btn.btn-primary:focus {
+  color: rgba(222, 231, 255, 0.46) !important;
+  background: rgba(102, 119, 167, 0.18) !important;
+  border-color: rgba(159, 181, 255, 0.15) !important;
+  box-shadow: none !important;
+  transform: none;
+  animation: none;
+}
+
 .btn-success { color: #061c17 !important; background: linear-gradient(115deg, #63e6b2, #8ef1ca) !important; border-color: rgba(181, 255, 218, 0.55) !important; }
 .btn-warning { color: #2b1900 !important; background: linear-gradient(115deg, #ffd36c, #ffc086) !important; border-color: rgba(255, 229, 163, 0.55) !important; }
 .btn-danger { color: #280613 !important; background: linear-gradient(115deg, #ff7b98, #ff9c83) !important; border-color: rgba(255, 190, 205, 0.52) !important; }
@@ -360,10 +508,27 @@ select.form-control,
 
 .form-control::placeholder { color: #7f8ab0 !important; }
 
-.form-control:focus {
+.form-control:focus,
+.form-control:focus-visible {
   border-color: var(--nebula-cyan) !important;
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(100, 232, 255, 0.14) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(100, 232, 255, 0.28) !important;
+}
+
+.form-group label {
+  font-family: 'Stack Sans Notch';
+}
+
+/* Technical values stay compact and legible without a network font request. */
+.text-monospace,
+input.text-monospace,
+textarea.text-monospace,
+pre,
+code,
+kbd,
+samp,
+#logViewerText {
+  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace !important;
 }
 
 /* Native select arrows sit almost against the right border in Chromium.
@@ -474,7 +639,12 @@ label, .help-block, .text-muted { color: var(--nebula-muted) !important; }
   background-color: var(--nebula-line) !important;
 }
 .modal-header, .modal-footer { border-color: var(--nebula-line) !important; }
-.modal-header { background: linear-gradient(100deg, rgba(102, 126, 255, 0.17), transparent) !important; border-radius: 12px 12px 0 0; }
+.modal-header {
+  padding-top: 16px;
+  padding-bottom: 14px;
+  background: linear-gradient(100deg, rgba(102, 126, 255, 0.17), transparent) !important;
+  border-radius: 12px 12px 0 0;
+}
 .close { color: var(--nebula-text) !important; opacity: 0.72; text-shadow: none; }
 .close:hover { opacity: 1; }
 
