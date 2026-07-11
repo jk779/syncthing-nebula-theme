@@ -477,6 +477,125 @@ a:hover, a:focus {
   letter-spacing: 0.01em;
 }
 
+/* Status classes come directly from Syncthing's folderClass and deviceClass
+   helpers. Keep their semantic colors, but present them as compact pills. */
+.panel-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 26px;
+  margin-top: -2px;
+  padding: 4px 9px;
+  color: #c8d4fb;
+  font-family: "Google Sans Flex", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  line-height: 1;
+  text-shadow: none;
+  border: 1px solid rgba(164, 184, 242, 0.26);
+  border-radius: 999px;
+  background: rgba(7, 15, 39, 0.34);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.panel-status.text-success {
+  color: #8df0c1;
+  border-color: rgba(92, 224, 172, 0.48);
+  background: rgba(27, 132, 92, 0.20);
+}
+
+.panel-status.text-primary {
+  color: #8beaff;
+  border-color: rgba(100, 232, 255, 0.50);
+  background: rgba(35, 134, 183, 0.20);
+}
+
+.panel-status.text-info {
+  color: #b8c7ff;
+  border-color: rgba(139, 162, 255, 0.44);
+  background: rgba(92, 102, 187, 0.20);
+}
+
+.panel-status.text-warning {
+  color: #ffe09a;
+  border-color: rgba(255, 211, 108, 0.54);
+  background: rgba(177, 117, 22, 0.22);
+}
+
+.panel-status.text-danger {
+  color: #ffafc0;
+  border-color: rgba(255, 123, 152, 0.55);
+  background: rgba(190, 52, 87, 0.22);
+}
+
+.panel-status.text-default {
+  color: #c1c9df;
+  border-color: rgba(168, 181, 218, 0.34);
+  background: rgba(104, 115, 151, 0.18);
+}
+
+.panel-status .inline-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Syncthing's reception indicator describes the connection route, not ping.
+   Draw self-contained signal bars and color them by route quality. */
+.panel-status .reception {
+  display: inline-block;
+  width: 19px;
+  height: 14px;
+  margin-left: 1px;
+  vertical-align: -0.2em;
+  background: none !important;
+  color: #7582a8;
+}
+
+.panel-status .reception::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-repeat: no-repeat;
+}
+
+.panel-status .reception-0 { color: #7582a8; }
+.panel-status .reception-1 { color: #ff9b7e; }
+.panel-status .reception-2 { color: #ffd36c; }
+.panel-status .reception-3 { color: #70dcff; }
+.panel-status .reception-4 { color: #67e6af; }
+
+.panel-status .reception-0::before {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 10px;
+  background-size: 3px 3px;
+}
+
+.panel-status .reception-1::before {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 10px;
+  background-size: 3px 3px;
+}
+
+.panel-status .reception-2::before {
+  background-image: linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor);
+  background-position: 0 10px, 5px 7px;
+  background-size: 3px 3px, 3px 6px;
+}
+
+.panel-status .reception-3::before {
+  background-image: linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor);
+  background-position: 0 10px, 5px 7px, 10px 4px;
+  background-size: 3px 3px, 3px 6px, 3px 9px;
+}
+
+.panel-status .reception-4::before {
+  background-image: linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor);
+  background-position: 0 10px, 5px 7px, 10px 4px, 15px 1px;
+  background-size: 3px 3px, 3px 6px, 3px 9px, 3px 12px;
+}
+
 .panel-footer {
   background: rgba(4, 8, 22, 0.25) !important;
   border-color: var(--nebula-line) !important;
