@@ -229,6 +229,21 @@ a:hover, a:focus {
   opacity: 1;
 }
 
+/* The heading is also a Bootstrap button. Let the outer panel own the frame
+   so its rounded corners never compete with a second inner border. */
+.panel > button.btn.panel-heading {
+  padding-right: 18px;
+  padding-left: 18px;
+  border: 0 !important;
+  border-bottom: 1px solid var(--nebula-line) !important;
+  border-radius: 13px 13px 0 0 !important;
+}
+
+.panel > button.btn.panel-heading[aria-expanded="false"] {
+  border-bottom-width: 0 !important;
+  border-radius: 13px !important;
+}
+
 .panel::after {
   position: absolute;
   z-index: 2;
@@ -264,6 +279,10 @@ a:hover, a:focus {
 .panel-footer {
   background: rgba(4, 8, 22, 0.25) !important;
   border-color: var(--nebula-line) !important;
+}
+
+.panel-body.less-padding {
+  padding: 7px 9px 9px !important;
 }
 
 .panel-group .panel-heading + .panel-collapse > .panel-body,
@@ -347,6 +366,62 @@ select.form-control,
   box-shadow: 0 0 0 3px rgba(100, 232, 255, 0.14) !important;
 }
 
+/* Native select arrows sit almost against the right border in Chromium.
+   Draw a consistent chevron with balanced optical padding instead. */
+select.form-control {
+  padding-right: 36px !important;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #c9d5f5 50%),
+    linear-gradient(135deg, #c9d5f5 50%, transparent 50%) !important;
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50% !important;
+  background-size: 6px 6px, 6px 6px !important;
+  background-repeat: no-repeat !important;
+}
+
+/* API key is the only monospace input group in Settings. Give its action a
+   real gap instead of Bootstrap's intentional one-pixel border overlap. */
+#settings .input-group:has(> input.text-monospace) {
+  display: flex;
+  gap: 8px;
+}
+
+#settings .input-group:has(> input.text-monospace) > .form-control {
+  float: none;
+  flex: 1 1 auto;
+  width: auto;
+  border-radius: 8px !important;
+}
+
+#settings .input-group:has(> input.text-monospace) > .input-group-btn {
+  display: flex;
+  flex: 0 0 auto;
+  width: auto;
+}
+
+#settings .input-group:has(> input.text-monospace) > .input-group-btn > .btn {
+  margin-left: 0;
+  border-radius: 9px !important;
+}
+
+/* Bootstrap positions checkbox inputs with negative margins. Flex alignment
+   keeps every checkbox centered against its translated label. */
+.checkbox > label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 0;
+}
+
+.checkbox input[type="checkbox"] {
+  position: static;
+  flex: 0 0 auto;
+  margin: 0 !important;
+}
+
 select.form-control option {
   color: var(--nebula-text);
   background: #121a36;
@@ -373,6 +448,11 @@ label, .help-block, .text-muted { color: var(--nebula-muted) !important; }
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.48);
 }
 
+.dropdown-menu {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
 .dropdown-menu > li > a {
   color: var(--nebula-muted) !important;
   padding-top: 8px;
@@ -388,7 +468,11 @@ label, .help-block, .text-muted { color: var(--nebula-muted) !important; }
   background: rgba(110, 142, 255, 0.20) !important;
 }
 
-.divider { background-color: var(--nebula-line) !important; }
+.dropdown-menu .divider {
+  height: 1px !important;
+  margin: 6px 0 !important;
+  background-color: var(--nebula-line) !important;
+}
 .modal-header, .modal-footer { border-color: var(--nebula-line) !important; }
 .modal-header { background: linear-gradient(100deg, rgba(102, 126, 255, 0.17), transparent) !important; border-radius: 12px 12px 0 0; }
 .close { color: var(--nebula-text) !important; opacity: 0.72; text-shadow: none; }
@@ -425,6 +509,14 @@ label, .help-block, .text-muted { color: var(--nebula-muted) !important; }
   background: rgba(3, 7, 22, 0.70);
   border: 1px solid var(--nebula-line) !important;
   border-radius: 11px;
+}
+
+/* Bootstrap's clearfix pseudo-elements become extra flex items and double the
+   horizontal inset. They are unnecessary on this flex-based tab bar. */
+.modal .nav-tabs::before,
+.modal .nav-tabs::after {
+  display: none;
+  content: none;
 }
 
 .modal .nav-tabs > li {
