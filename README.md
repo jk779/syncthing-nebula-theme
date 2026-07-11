@@ -66,6 +66,13 @@ Google Sans Flex, Stack Sans Notch, and DM Mono are bundled in
 `themes/nebula/assets/font`. The theme makes no Google Fonts CDN requests at
 runtime. See `themes/nebula/assets/font/LICENSES.md` for licensing details.
 
+## Icons
+
+The theme replaces Syncthing's Font Awesome glyphs with bundled Octicon SVG
+masks while retaining Syncthing's original HTML classes. The selected icons
+are stored in `themes/nebula/assets/icons` and are licensed under the MIT
+License; see `themes/nebula/assets/icons/LICENSE`.
+
 ## Security
 
 If the GUI is reachable beyond the local machine, protect it with a password

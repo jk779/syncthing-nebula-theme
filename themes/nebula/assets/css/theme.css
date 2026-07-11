@@ -215,11 +215,13 @@ a:hover, a:focus {
 
 .navbar-brand::before {
   display: block;
-  width: 142px;
-  height: 34px;
-  content: "";
-  background: url("../img/nebula-cutline.svg") left center / contain no-repeat;
-  filter: drop-shadow(0 0 12px rgba(100, 232, 255, 0.17));
+  content: "Syncthing";
+  color: var(--nebula-text);
+  font-family: "Stack Sans Notch", "Google Sans Flex", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1;
 }
 
 .navbar-brand::after {
@@ -286,6 +288,99 @@ a:hover, a:focus {
   transform: translateY(-1px);
 }
 
+/* Syncthing keeps Font Awesome class names in its markup. Replace their glyphs
+   with bundled Octicon SVG masks without changing the upstream templates. */
+:is(.fa, .fas, .far)::before {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  content: "";
+  vertical-align: -0.125em;
+  background-color: currentColor;
+  -webkit-mask: var(--nebula-octicon, url("../icons/question-16.svg")) center / contain no-repeat;
+  mask: var(--nebula-octicon, url("../icons/question-16.svg")) center / contain no-repeat;
+}
+
+.fa-angle-right { --nebula-octicon: url("../icons/chevron-right-16.svg"); }
+.fa-arrow-circle-down { --nebula-octicon: url("../icons/arrow-down-16.svg"); }
+.fa-arrow-circle-up { --nebula-octicon: url("../icons/arrow-up-16.svg"); }
+.fa-arrow-right, .fa-long-arrow-alt-right { --nebula-octicon: url("../icons/arrow-right-16.svg"); }
+.fa-bolt { --nebula-octicon: url("../icons/zap-16.svg"); }
+.fa-calendar { --nebula-octicon: url("../icons/calendar-16.svg"); }
+.fa-caret-down { --nebula-octicon: url("../icons/triangle-down-16.svg"); }
+.fa-caret-right { --nebula-octicon: url("../icons/triangle-right-16.svg"); }
+.fa-chart-bar { --nebula-octicon: url("../icons/graph-16.svg"); }
+.fa-check { --nebula-octicon: url("../icons/check-16.svg"); }
+.fa-check-circle { --nebula-octicon: url("../icons/check-circle-16.svg"); }
+.fa-check-square { --nebula-octicon: url("../icons/checkbox-16.svg"); }
+.fa-circle { --nebula-octicon: url("../icons/circle-16.svg"); }
+.fa-clock { --nebula-octicon: url("../icons/clock-16.svg"); }
+.fa-clone, .fa-copy, .fa-files-o { --nebula-octicon: url("../icons/copy-16.svg"); }
+.fa-cloud-download-alt, .fa-eject { --nebula-octicon: url("../icons/download-16.svg"); }
+.fa-cog, .fa-cogs { --nebula-octicon: url("../icons/gear-16.svg"); }
+.fa-comments-o { --nebula-octicon: url("../icons/comment-discussion-16.svg"); }
+.fa-desktop, .fa-laptop { --nebula-octicon: url("../icons/device-desktop-16.svg"); }
+.fa-dot-circle { --nebula-octicon: url("../icons/dot-16.svg"); }
+.fa-envelope-o { --nebula-octicon: url("../icons/mail-16.svg"); }
+.fa-exchange-alt, .fa-recycle, .fa-redo, .fa-refresh, .fa-spinner { --nebula-octicon: url("../icons/sync-16.svg"); }
+.fa-exclamation-circle { --nebula-octicon: url("../icons/issue-opened-16.svg"); }
+.fa-exclamation-triangle { --nebula-octicon: url("../icons/alert-16.svg"); }
+.fa-eye { --nebula-octicon: url("../icons/eye-16.svg"); }
+.fa-eye-slash { --nebula-octicon: url("../icons/eye-closed-16.svg"); }
+.fa-file, .fa-file-alt { --nebula-octicon: url("../icons/file-16.svg"); }
+.fa-file-archive-o { --nebula-octicon: url("../icons/file-zip-16.svg"); }
+.fa-filter { --nebula-octicon: url("../icons/filter-16.svg"); }
+.fa-folder, .fa-folder-open, .fa-folder-open-o { --nebula-octicon: url("../icons/file-directory-16.svg"); }
+.fa-frown, .fa-meh { --nebula-octicon: url("../icons/smiley-16.svg"); }
+.fa-globe { --nebula-octicon: url("../icons/globe-16.svg"); }
+.fa-hdd { --nebula-octicon: url("../icons/server-16.svg"); }
+.fa-heart { --nebula-octicon: url("../icons/heart-16.svg"); }
+.fa-hourglass-half { --nebula-octicon: url("../icons/hourglass-16.svg"); }
+.fa-info-circle { --nebula-octicon: url("../icons/info-16.svg"); }
+.fa-lock { --nebula-octicon: url("../icons/lock-16.svg"); }
+.fa-minus-circle { --nebula-octicon: url("../icons/dash-16.svg"); }
+.fa-pause { --nebula-octicon: url("../icons/pause-16.svg"); }
+.fa-pencil-alt { --nebula-octicon: url("../icons/pencil-16.svg"); }
+.fa-play { --nebula-octicon: url("../icons/play-16.svg"); }
+.fa-plus { --nebula-octicon: url("../icons/plus-16.svg"); }
+.fa-power-off { --nebula-octicon: url("../icons/stop-16.svg"); }
+.fa-qrcode { --nebula-octicon: url("../icons/apps-16.svg"); }
+.fa-question-circle { --nebula-octicon: url("../icons/question-16.svg"); }
+.fa-share-alt { --nebula-octicon: url("../icons/share-android-16.svg"); }
+.fa-sitemap { --nebula-octicon: url("../icons/repo-forked-16.svg"); }
+.fa-square { --nebula-octicon: url("../icons/square-16.svg"); }
+.fa-times, .fa-window-close { --nebula-octicon: url("../icons/x-16.svg"); }
+.fa-trash-alt { --nebula-octicon: url("../icons/trash-16.svg"); }
+.fa-undo { --nebula-octicon: url("../icons/history-16.svg"); }
+.fa-wrench { --nebula-octicon: url("../icons/tools-16.svg"); }
+
+.fa-arrow-alt-circle-down, .fa-level-down { --nebula-octicon: url("../icons/arrow-down-16.svg"); }
+.fa-asterisk { --nebula-octicon: url("../icons/plus-16.svg"); }
+.fa-bar-chart { --nebula-octicon: url("../icons/graph-16.svg"); }
+.fa-book { --nebula-octicon: url("../icons/book-16.svg"); }
+.fa-bug { --nebula-octicon: url("../icons/bug-16.svg"); }
+.fa-cloud, .fa-cloud-upload-alt { --nebula-octicon: url("../icons/cloud-16.svg"); }
+.fa-compress { --nebula-octicon: url("../icons/screen-normal-16.svg"); }
+.fa-download { --nebula-octicon: url("../icons/download-16.svg"); }
+.fa-file-code-o { --nebula-octicon: url("../icons/file-code-16.svg"); }
+.fa-file-text { --nebula-octicon: url("../icons/file-16.svg"); }
+.fa-handshake-o, .fa-users { --nebula-octicon: url("../icons/people-16.svg"); }
+.fa-home { --nebula-octicon: url("../icons/home-16.svg"); }
+.fa-link { --nebula-octicon: url("../icons/link-16.svg"); }
+.fa-map-signs { --nebula-octicon: url("../icons/arrow-right-16.svg"); }
+.fa-minus-square { --nebula-octicon: url("../icons/dash-16.svg"); }
+.fa-random, .fa-sync { --nebula-octicon: url("../icons/sync-16.svg"); }
+.fa-search { --nebula-octicon: url("../icons/search-16.svg"); }
+.fa-sign-out { --nebula-octicon: url("../icons/sign-out-16.svg"); }
+.fa-sort { --nebula-octicon: url("../icons/sort-desc-16.svg"); }
+.fa-stop { --nebula-octicon: url("../icons/stop-16.svg"); }
+.fa-tag { --nebula-octicon: url("../icons/tag-16.svg"); }
+.fa-thumbs-up { --nebula-octicon: url("../icons/thumbsup-16.svg"); }
+.fa-unlink { --nebula-octicon: url("../icons/unlink-16.svg"); }
+.fa-unlock { --nebula-octicon: url("../icons/unlock-16.svg"); }
+.fa-upload { --nebula-octicon: url("../icons/upload-16.svg"); }
+.fa-user-md, .fa-user-secret { --nebula-octicon: url("../icons/person-16.svg"); }
+
 /* Cards, sections and accordion headings */
 .panel {
   position: relative;
@@ -339,6 +434,13 @@ a:hover, a:focus {
   border-radius: 13px !important;
 }
 
+.panel > button.btn.panel-heading:hover,
+.panel > button.btn.panel-heading:focus,
+.panel > button.btn.panel-heading:active,
+.panel > button.btn.panel-heading.active {
+  transform: none;
+}
+
 .panel > button.btn.panel-heading:focus-visible {
   outline-offset: -2px;
 }
@@ -346,7 +448,7 @@ a:hover, a:focus {
 .panel::after {
   position: absolute;
   z-index: 2;
-  top: 1px;
+  top: 0;
   right: 12%;
   left: 12%;
   height: 2px;
