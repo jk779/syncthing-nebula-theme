@@ -21,6 +21,6 @@
     </filter>
   </defs>
   <text x="1" y="26" fill="url(#letters)" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="1.4">NEB</text>
-  <path d="M55 2h6l-8 30h-6z" fill="url(#accent)" filter="url(#glow)"/>
-  <text x="63" y="29" fill="url(#accent)" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="1.4">ULA</text>
+  <path d="M52 2h6l-8 30h-6z" fill="url(#accent)" filter="url(#glow)"/>
+  <text x="60" y="26" fill="url(#accent)" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="1.4">ULA</text>
 </svg>
