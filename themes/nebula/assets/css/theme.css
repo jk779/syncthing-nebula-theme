@@ -121,21 +121,17 @@ a:hover, a:focus {
 
 .navbar-brand::before {
   display: block;
-  content: "NEBULA";
-  color: transparent;
-  font-size: 21px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  line-height: 0.95;
-  text-shadow: 0 0 17px rgba(100, 232, 255, 0.30), 0 0 28px rgba(173, 123, 255, 0.17);
-  background: linear-gradient(105deg, #e9fbff 0%, var(--nebula-cyan) 40%, var(--nebula-violet) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  width: 142px;
+  height: 34px;
+  content: "";
+  background: url("../img/nebula-cutline.svg") left center / contain no-repeat;
+  filter: drop-shadow(0 0 12px rgba(100, 232, 255, 0.17));
 }
 
 .navbar-brand::after {
   display: block;
-  margin-top: 5px;
+  margin-top: 1px;
+  margin-left: 2px;
   content: "SYNC  CONTROL";
   color: #8f9abc;
   font-size: 7px;

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142 34" role="img" aria-labelledby="title desc">
+  <title id="title">Nebula Cutline</title>
+  <desc id="desc">Nebula wordmark divided by a luminous diagonal cut.</desc>
+  <defs>
+    <linearGradient id="letters" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5f8ff"/>
+      <stop offset="0.58" stop-color="#cbd9ff"/>
+      <stop offset="1" stop-color="#8facff"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#5ce0ac"/>
+      <stop offset="0.45" stop-color="#64e8ff"/>
+      <stop offset="1" stop-color="#ad7bff"/>
+    </linearGradient>
+    <filter id="glow" x="-80%" y="-40%" width="260%" height="180%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <text x="1" y="26" fill="url(#letters)" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="1.4">NEB</text>
+  <path d="M55 2h6l-8 30h-6z" fill="url(#accent)" filter="url(#glow)"/>
+  <text x="63" y="29" fill="url(#accent)" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="1.4">ULA</text>
+</svg>
