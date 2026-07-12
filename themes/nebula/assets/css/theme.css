@@ -602,8 +602,8 @@ a:hover, a:focus {
 }
 
 .panel-footer {
-  background: rgba(4, 8, 22, 0.25) !important;
-  border-color: var(--nebula-line) !important;
+  background: transparent !important;
+  border-top: 0 !important;
 }
 
 .panel-body.less-padding {
@@ -635,8 +635,8 @@ a:hover, a:focus {
 }
 
 .panel-warning > .panel-footer {
-  background: rgba(43, 36, 50, 0.62) !important;
-  border-color: rgba(255, 212, 64, 0.36) !important;
+  background: transparent !important;
+  border-top: 0 !important;
 }
 
 .panel-danger {
@@ -657,8 +657,8 @@ a:hover, a:focus {
 }
 
 .panel-danger > .panel-footer {
-  background: rgba(48, 28, 49, 0.64) !important;
-  border-color: rgba(255, 126, 155, 0.36) !important;
+  background: transparent !important;
+  border-top: 0 !important;
 }
 
 /* Buttons */
@@ -903,7 +903,11 @@ label, .help-block, .text-muted { color: var(--nebula-muted) !important; }
   margin: 6px 0 !important;
   background-color: var(--nebula-line) !important;
 }
-.modal-header, .modal-footer { border-color: var(--nebula-line) !important; }
+.modal-header { border-color: var(--nebula-line) !important; }
+.modal-footer {
+  background: transparent !important;
+  border-top: 0 !important;
+}
 .modal-header {
   padding-top: 16px;
   padding-bottom: 14px;
