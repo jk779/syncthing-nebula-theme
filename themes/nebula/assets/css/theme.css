@@ -225,18 +225,21 @@ a:hover, a:focus {
   font-size: 30px;
   letter-spacing: -0.045em;
   line-height: 1;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 .navbar-brand::after {
   display: block;
-  margin-top: 1px;
-  margin-left: 2px;
-  content: "SYNC  CONTROL";
+  content: "SYNC CONTROL";
   color: #8f9abc;
   font-size: 7px;
   font-weight: 800;
   letter-spacing: 0.19em;
   line-height: 1;
+  padding-right: 17px;
+  width: 100%;
+  text-align: right;
 }
 
 .navbar-text {
