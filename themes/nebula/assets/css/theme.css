@@ -943,6 +943,12 @@ label, .help-block, .text-muted { color: var(--nebula-muted) !important; }
   padding-top: 0;
 }
 
+.modal-footer > .btn {
+  min-height: 46px;
+  padding: 10px 18px;
+  font-size: 16px;
+}
+
 .modal-body {
   padding-bottom: 0;
 }
