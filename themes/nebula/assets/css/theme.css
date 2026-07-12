@@ -675,8 +675,8 @@ a:hover, a:focus {
 
 /* Buttons */
 .btn {
-  min-height: 36px;
-  padding: 7px 13px;
+  min-height: 40px;
+  padding: 9px 15px;
   border: 1px solid transparent !important;
   border-radius: 9px !important;
   font-weight: 600;
@@ -686,18 +686,18 @@ a:hover, a:focus {
 }
 
 .btn.btn-xs {
-  min-height: 28px;
-  padding: 4px 9px;
+  min-height: 30px;
+  padding: 5px 10px;
 }
 
 .btn.btn-sm {
-  min-height: 32px;
-  padding: 5px 11px;
+  min-height: 36px;
+  padding: 7px 13px;
 }
 
 .btn.btn-lg {
-  min-height: 44px;
-  padding: 10px 16px;
+  min-height: 48px;
+  padding: 12px 18px;
 }
 
 .btn:hover, .btn:focus {
