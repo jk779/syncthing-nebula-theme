@@ -1007,6 +1007,7 @@ label, .help-block, .text-muted { color: var(--nebula-muted) !important; }
 .modal .nav-tabs > li.active > a:focus {
   margin: 0;
   padding: 9px 12px;
+  font-weight: 600;
   text-align: center;
   border: 1px solid transparent !important;
   border-radius: 7px !important;
