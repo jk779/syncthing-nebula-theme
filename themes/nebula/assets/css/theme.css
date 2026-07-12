@@ -480,12 +480,14 @@ a:hover, a:focus {
 /* Status classes come directly from Syncthing's folderClass and deviceClass
    helpers. Keep their semantic colors, but present them as compact pills. */
 .panel-status {
+  position: relative;
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 26px;
+  height: 30px;
   margin-top: -2px;
-  padding: 4px 9px;
+  padding: 0 12px;
   color: #c8d4fb;
   font-family: "Google Sans Flex", system-ui, sans-serif;
   font-size: 12px;
@@ -500,39 +502,39 @@ a:hover, a:focus {
 }
 
 .panel-status.text-success {
-  color: #8df0c1;
-  border-color: rgba(92, 224, 172, 0.48);
-  background: rgba(27, 132, 92, 0.20);
+  color: #8fffd0;
+  border-color: rgba(54, 234, 147, 0.82);
+  background: rgba(10, 151, 83, 0.54);
 }
 
 .panel-status.text-primary {
-  color: #8beaff;
-  border-color: rgba(100, 232, 255, 0.50);
-  background: rgba(35, 134, 183, 0.20);
+  color: #a0efff;
+  border-color: rgba(62, 210, 255, 0.82);
+  background: rgba(0, 126, 198, 0.54);
 }
 
 .panel-status.text-info {
-  color: #b8c7ff;
-  border-color: rgba(139, 162, 255, 0.44);
-  background: rgba(92, 102, 187, 0.20);
+  color: #d1d2ff;
+  border-color: rgba(151, 145, 255, 0.76);
+  background: rgba(84, 70, 193, 0.54);
 }
 
 .panel-status.text-warning {
-  color: #ffe09a;
-  border-color: rgba(255, 211, 108, 0.54);
-  background: rgba(177, 117, 22, 0.22);
+  color: #fff0a1;
+  border-color: rgba(255, 207, 38, 0.88);
+  background: rgba(190, 119, 0, 0.58);
 }
 
 .panel-status.text-danger {
-  color: #ffafc0;
-  border-color: rgba(255, 123, 152, 0.55);
-  background: rgba(190, 52, 87, 0.22);
+  color: #ffc0ce;
+  border-color: rgba(255, 91, 126, 0.86);
+  background: rgba(191, 28, 70, 0.58);
 }
 
 .panel-status.text-default {
-  color: #c1c9df;
-  border-color: rgba(168, 181, 218, 0.34);
-  background: rgba(104, 115, 151, 0.18);
+  color: #dde5ff;
+  border-color: rgba(177, 192, 235, 0.54);
+  background: rgba(91, 105, 151, 0.52);
 }
 
 .panel-status .inline-icon {
@@ -543,13 +545,16 @@ a:hover, a:focus {
 /* Syncthing's reception indicator describes the connection route, not ping.
    Draw self-contained signal bars and color them by route quality. */
 .panel-status .reception {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 8px);
   display: inline-block;
   width: 19px;
   height: 14px;
-  margin-left: 1px;
-  vertical-align: -0.2em;
+  margin: 0;
+  transform: translateY(-50%);
   background: none !important;
-  color: #7582a8;
+  color: rgba(255, 255, 255, 0.94);
 }
 
 .panel-status .reception::before {
@@ -560,11 +565,11 @@ a:hover, a:focus {
   background-repeat: no-repeat;
 }
 
-.panel-status .reception-0 { color: #7582a8; }
-.panel-status .reception-1 { color: #ff9b7e; }
-.panel-status .reception-2 { color: #ffd36c; }
-.panel-status .reception-3 { color: #70dcff; }
-.panel-status .reception-4 { color: #67e6af; }
+.panel-status:has(.reception) {
+  gap: 0;
+  margin-right: 27px;
+}
+.panel-status .inline-icon:has(.reception) { width: 0; }
 
 .panel-status .reception-0::before {
   background-image: linear-gradient(currentColor, currentColor);
@@ -613,47 +618,47 @@ a:hover, a:focus {
 .panel-success { border-color: rgba(92, 224, 172, 0.38) !important; }
 .panel-success > .panel-heading { background: linear-gradient(100deg, rgba(46, 173, 126, 0.30), rgba(92, 224, 172, 0.09)) !important; }
 .panel-warning {
-  background: linear-gradient(145deg, rgba(74, 56, 31, 0.97), rgba(39, 33, 39, 0.98)) !important;
-  border-color: rgba(255, 203, 91, 0.68) !important;
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 203, 91, 0.12), 0 0 28px rgba(255, 184, 76, 0.11), inset 0 1px 0 rgba(255, 246, 210, 0.11);
+  background: linear-gradient(145deg, rgba(38, 34, 53, 0.98), rgba(22, 25, 53, 0.99)) !important;
+  border-color: rgba(255, 200, 39, 0.86) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 201, 34, 0.16), 0 0 28px rgba(255, 190, 22, 0.15), inset 0 1px 0 rgba(255, 244, 185, 0.13);
 }
 
 .panel-warning::after {
-  background: linear-gradient(90deg, transparent, #ffd36c, #ffb86b, transparent);
-  box-shadow: 0 0 14px rgba(255, 194, 91, 0.48);
+  background: linear-gradient(90deg, transparent, #ffe66d, #ffbf24, transparent);
+  box-shadow: 0 0 14px rgba(255, 202, 28, 0.58);
 }
 
 .panel-warning > .panel-heading {
   color: #fff6da !important;
-  background: linear-gradient(105deg, rgba(167, 110, 22, 0.76), rgba(122, 76, 27, 0.64) 52%, rgba(102, 63, 55, 0.56)) !important;
-  border-color: rgba(255, 211, 108, 0.42) !important;
+  background: linear-gradient(105deg, #d89508, #b86a00 58%, #9b4f14) !important;
+  border-color: rgba(255, 220, 94, 0.66) !important;
 }
 
 .panel-warning > .panel-footer {
-  background: rgba(93, 67, 31, 0.34) !important;
-  border-color: rgba(255, 211, 108, 0.28) !important;
+  background: rgba(43, 36, 50, 0.62) !important;
+  border-color: rgba(255, 212, 64, 0.36) !important;
 }
 
 .panel-danger {
-  background: linear-gradient(145deg, rgba(79, 31, 51, 0.98), rgba(35, 24, 46, 0.98)) !important;
-  border-color: rgba(255, 118, 149, 0.70) !important;
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 118, 149, 0.13), 0 0 30px rgba(255, 86, 128, 0.12), inset 0 1px 0 rgba(255, 229, 237, 0.11);
+  background: linear-gradient(145deg, rgba(48, 27, 48, 0.98), rgba(23, 22, 49, 0.99)) !important;
+  border-color: rgba(255, 82, 122, 0.86) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 82, 122, 0.16), 0 0 30px rgba(255, 62, 108, 0.15), inset 0 1px 0 rgba(255, 221, 232, 0.12);
 }
 
 .panel-danger::after {
-  background: linear-gradient(90deg, transparent, #ff7b98, #ff9c83, transparent);
-  box-shadow: 0 0 14px rgba(255, 112, 145, 0.48);
+  background: linear-gradient(90deg, transparent, #ff6386, #ff486e, transparent);
+  box-shadow: 0 0 14px rgba(255, 67, 107, 0.58);
 }
 
 .panel-danger > .panel-heading {
   color: #fff0f4 !important;
-  background: linear-gradient(105deg, rgba(176, 44, 83, 0.76), rgba(126, 42, 77, 0.66) 52%, rgba(91, 48, 79, 0.58)) !important;
-  border-color: rgba(255, 150, 174, 0.42) !important;
+  background: linear-gradient(105deg, #d92356, #a90d44 58%, #83133f) !important;
+  border-color: rgba(255, 155, 177, 0.66) !important;
 }
 
 .panel-danger > .panel-footer {
-  background: rgba(88, 30, 55, 0.36) !important;
-  border-color: rgba(255, 150, 174, 0.28) !important;
+  background: rgba(48, 28, 49, 0.64) !important;
+  border-color: rgba(255, 126, 155, 0.36) !important;
 }
 
 /* Buttons */
